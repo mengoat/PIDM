@@ -1,0 +1,12 @@
+imageio==2.10.3
+lmdb==1.2.1
+opencv-python
+Pillow
+PyYAML==5.4.1
+scikit-image==0.17.2
+scipy
+tensorboard
+tqdm
+wandb
+tensorfn
+pandas
