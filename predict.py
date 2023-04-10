@@ -47,7 +47,8 @@ class Predictor():
         ):
         """Run a single prediction on the model"""
 
-        src = Image.open(image)
+        #src = Image.open(image)
+        src = Image.fromarray(image)
         src = self.transforms(src).unsqueeze(0).cuda()
         tgt_pose = torch.stack([transforms.ToTensor()(np.load(ps)).cuda() for ps in np.random.choice(self.pose_list, num_poses)], 0)
 
@@ -71,7 +72,7 @@ class Predictor():
 
         numpy_imgs = output.unsqueeze(0).permute(0,2,3,1).detach().cpu().numpy()
         fake_imgs = (255*numpy_imgs).astype(np.uint8)
-        Image.fromarray(fake_imgs[0]).save('output1.png')
+        #Image.fromarray(fake_imgs[0]).save('output1.png')
         return fake_imgs[0]
 
     
@@ -123,7 +124,8 @@ class Predictor():
         ):
         """Run a single prediction on the model"""
 
-        src = Image.open(image)
+        #src = Image.open(image)
+        src = Image.fromarray(image)
         src = self.transforms(src).unsqueeze(0).cuda()
         
         ref = Image.open(ref_img)
