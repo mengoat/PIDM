@@ -52,4 +52,4 @@ demo = gr.Interface(PIDM,
         outputs=[gr.Image()],
         title="Person Image Synthesis via Denoising Diffusion Model",
     )
-demo.launch(share=True)   
+demo.launch(share=True,auth=("username", "password"),server_name="10.40.18.41")   
